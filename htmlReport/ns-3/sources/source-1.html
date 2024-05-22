@@ -1,0 +1,218 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ByeActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">es.ulpgc.eite.da.hello_bye.bye</a>
+</div>
+
+<h1>Coverage Summary for Class: ByeActivity (es.ulpgc.eite.da.hello_bye.bye)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ByeActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package es.ulpgc.eite.da.hello_bye.bye;
+&nbsp;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.util.Log;
+&nbsp;import android.widget.Button;
+&nbsp;import android.widget.TextView;
+&nbsp;
+&nbsp;import androidx.appcompat.app.AppCompatActivity;
+&nbsp;
+&nbsp;import es.ulpgc.eite.da.hello_bye.R;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;public class ByeActivity</b>
+&nbsp;    extends AppCompatActivity implements ByeContract.View {
+&nbsp;
+<b class="nc">&nbsp;  public static String TAG = &quot;HelloBye.ByeActivity&quot;;</b>
+&nbsp;
+&nbsp;  ByeContract.Presenter presenter;
+&nbsp;
+&nbsp;  Button sayByeButton, goHelloButton;
+&nbsp;  TextView byeMessage;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;    super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;    setContentView(R.layout.activity_bye);</b>
+&nbsp;
+<b class="nc">&nbsp;    setTitle(R.string.bye_screen_title);</b>
+&nbsp;
+<b class="nc">&nbsp;    sayByeButton = findViewById(R.id.sayByeButton);</b>
+<b class="nc">&nbsp;    goHelloButton = findViewById(R.id.goHelloButton);</b>
+<b class="nc">&nbsp;    byeMessage = findViewById(R.id.byeMessage);</b>
+&nbsp;
+<b class="nc">&nbsp;    sayByeButton.setText(getSayByeButtonLabel());</b>
+<b class="nc">&nbsp;    goHelloButton.setText(getGoHelloButtonLabel());</b>
+&nbsp;
+<b class="nc">&nbsp;    sayByeButton.setOnClickListener(v -&gt; presenter.sayByeButtonClicked());</b>
+<b class="nc">&nbsp;    goHelloButton.setOnClickListener(v -&gt; presenter.goHelloButtonClicked());</b>
+&nbsp;
+&nbsp;    // do the setup
+<b class="nc">&nbsp;    ByeScreen.configure(this);</b>
+&nbsp;
+&nbsp;    // do some work
+<b class="nc">&nbsp;    if(savedInstanceState == null) {</b>
+<b class="nc">&nbsp;      presenter.onCreateCalled();</b>
+&nbsp;
+&nbsp;    }else{
+<b class="nc">&nbsp;      presenter.onRecreateCalled();</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected void onResume() {
+<b class="nc">&nbsp;    super.onResume();</b>
+&nbsp;
+&nbsp;    // do some work
+<b class="nc">&nbsp;    presenter.onResumeCalled();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected void onPause() {
+<b class="nc">&nbsp;    super.onPause();</b>
+&nbsp;
+&nbsp;    // do some work
+<b class="nc">&nbsp;    presenter.onPauseCalled();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;deprecation&quot;)
+&nbsp;  @Override
+&nbsp;  public void onBackPressed() {
+<b class="nc">&nbsp;    super.onBackPressed();</b>
+<b class="nc">&nbsp;    presenter.onBackPressed();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected void onDestroy() {
+<b class="nc">&nbsp;    super.onDestroy();</b>
+&nbsp;
+&nbsp;    // do some work
+<b class="nc">&nbsp;    presenter.onDestroyCalled();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void displayByeData(ByeViewModel viewModel) {
+<b class="nc">&nbsp;    Log.e(TAG, &quot;displayByeData()&quot;);</b>
+&nbsp;
+&nbsp;    // deal with the data
+<b class="nc">&nbsp;    byeMessage.setText(viewModel.byeMessage);</b>
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void finishView() {
+<b class="nc">&nbsp;    finish();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String getGoHelloButtonLabel() {
+<b class="nc">&nbsp;    return getResources().getString(R.string.go_hello_button_label);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String getSayByeButtonLabel() {
+<b class="nc">&nbsp;    return getResources().getString(R.string.say_bye_button_label);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void injectPresenter(ByeContract.Presenter presenter) {
+<b class="nc">&nbsp;    this.presenter = presenter;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-21 21:29</div>
+</div>
+</body>
+</html>

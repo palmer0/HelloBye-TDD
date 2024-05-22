@@ -1,0 +1,204 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > HelloActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">es.ulpgc.eite.da.hello_bye.hello</a>
+</div>
+
+<h1>Coverage Summary for Class: HelloActivity (es.ulpgc.eite.da.hello_bye.hello)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HelloActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/34)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package es.ulpgc.eite.da.hello_bye.hello;
+&nbsp;
+&nbsp;import android.content.Intent;
+&nbsp;import android.os.Bundle;
+&nbsp;import android.util.Log;
+&nbsp;import android.widget.Button;
+&nbsp;import android.widget.TextView;
+&nbsp;
+&nbsp;import androidx.appcompat.app.AppCompatActivity;
+&nbsp;
+&nbsp;import es.ulpgc.eite.da.hello_bye.R;
+&nbsp;import es.ulpgc.eite.da.hello_bye.bye.ByeActivity;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;public class HelloActivity</b>
+&nbsp;    extends AppCompatActivity implements HelloContract.View {
+&nbsp;
+<b class="nc">&nbsp;  public static String TAG = &quot;HelloBye.HelloActivity&quot;;</b>
+&nbsp;
+&nbsp;
+&nbsp;  HelloContract.Presenter presenter;
+&nbsp;
+&nbsp;  Button sayHelloButton, goByeButton;
+&nbsp;  TextView helloMessage;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected void onCreate(Bundle savedInstanceState) {
+<b class="nc">&nbsp;    super.onCreate(savedInstanceState);</b>
+<b class="nc">&nbsp;    setContentView(R.layout.activity_hello);</b>
+&nbsp;
+<b class="nc">&nbsp;    setTitle(R.string.hello_screen_title);</b>
+&nbsp;
+<b class="nc">&nbsp;    sayHelloButton = findViewById(R.id.sayHelloButton);</b>
+<b class="nc">&nbsp;    goByeButton = findViewById(R.id.goByeButton);</b>
+<b class="nc">&nbsp;    helloMessage = findViewById(R.id.helloMessage);</b>
+&nbsp;
+<b class="nc">&nbsp;    sayHelloButton.setText(getSayHelloButtonLabel());</b>
+<b class="nc">&nbsp;    goByeButton.setText(getGoByeButtonLabel());</b>
+&nbsp;
+<b class="nc">&nbsp;    sayHelloButton.setOnClickListener(v -&gt; presenter.sayHelloButtonClicked());</b>
+<b class="nc">&nbsp;    goByeButton.setOnClickListener(v -&gt; presenter.goByeButtonClicked());</b>
+&nbsp;
+&nbsp;    // do the setup
+<b class="nc">&nbsp;    HelloScreen.configure(this);</b>
+&nbsp;
+&nbsp;    // do some work
+<b class="nc">&nbsp;    if(savedInstanceState == null){</b>
+<b class="nc">&nbsp;      presenter.onCreateCalled();</b>
+&nbsp;
+&nbsp;    } else {
+<b class="nc">&nbsp;      presenter.onRecreateCalled();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;  }</b>
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected void onResume() {
+<b class="nc">&nbsp;    super.onResume();</b>
+&nbsp;
+&nbsp;    // do some work
+<b class="nc">&nbsp;    presenter.onResumeCalled();</b>
+<b class="nc">&nbsp;  }</b>
+&nbsp;
+&nbsp;  @Override
+&nbsp;  protected void onPause() {
+<b class="nc">&nbsp;    super.onPause();</b>
+&nbsp;
+&nbsp;    // do some work
+<b class="nc">&nbsp;    presenter.onPauseCalled();</b>
+<b class="nc">&nbsp;  }</b>
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void navigateToByeScreen() {
+<b class="nc">&nbsp;    Intent intent = new Intent(this, ByeActivity.class);</b>
+<b class="nc">&nbsp;    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</b>
+<b class="nc">&nbsp;    startActivity(intent);</b>
+<b class="nc">&nbsp;  }</b>
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void displayHelloData(HelloViewModel viewModel) {
+<b class="nc">&nbsp;    Log.e(TAG, &quot;displayHelloData()&quot;);</b>
+&nbsp;
+&nbsp;    // deal with the data
+<b class="nc">&nbsp;    helloMessage.setText(viewModel.helloMessage);</b>
+<b class="nc">&nbsp;  }</b>
+&nbsp;
+&nbsp;
+&nbsp;  private String getGoByeButtonLabel() {
+<b class="nc">&nbsp;    return getResources().getString(R.string.go_bye_button_label);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String getSayHelloButtonLabel() {
+<b class="nc">&nbsp;    return getResources().getString(R.string.say_hello_button_label);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void injectPresenter(HelloContract.Presenter presenter) {
+<b class="nc">&nbsp;    this.presenter = presenter;</b>
+<b class="nc">&nbsp;  }</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-21 21:29</div>
+</div>
+</body>
+</html>

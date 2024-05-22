@@ -1,0 +1,241 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > HelloPresenter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">es.ulpgc.eite.da.hello_bye.hello</a>
+</div>
+
+<h1>Coverage Summary for Class: HelloPresenter (es.ulpgc.eite.da.hello_bye.hello)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HelloPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package es.ulpgc.eite.da.hello_bye.hello;
+&nbsp;
+&nbsp;import android.util.Log;
+&nbsp;
+&nbsp;import java.lang.ref.WeakReference;
+&nbsp;
+&nbsp;import es.ulpgc.eite.da.hello_bye.app.AppMediator;
+&nbsp;import es.ulpgc.eite.da.hello_bye.app.ByeToHelloState;
+&nbsp;import es.ulpgc.eite.da.hello_bye.app.HelloToByeState;
+&nbsp;
+&nbsp;
+&nbsp;public class HelloPresenter implements HelloContract.Presenter {
+&nbsp;
+<b class="nc">&nbsp;  public static String TAG = &quot;HelloBye.HelloPresenter&quot;;</b>
+&nbsp;
+&nbsp;  private WeakReference&lt;HelloContract.View&gt; view;
+&nbsp;  private HelloState state;
+&nbsp;  private HelloContract.Model model;
+&nbsp;  private AppMediator mediator;
+&nbsp;
+<b class="nc">&nbsp;  public HelloPresenter(AppMediator mediator) {</b>
+<b class="nc">&nbsp;    this.mediator = mediator;</b>
+&nbsp;    //state = mediator.getHelloState();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void onCreateCalled() {
+<b class="nc">&nbsp;    Log.e(TAG, &quot;onCreateCalled()&quot;);</b>
+&nbsp;
+&nbsp;    //state = mediator.getHelloState();
+<b class="nc">&nbsp;    state = new HelloState();</b>
+<b class="nc">&nbsp;    mediator.setHelloState(state);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void onRecreateCalled() {
+<b class="nc">&nbsp;    Log.e(TAG, &quot;onRecreateCalled()&quot;);</b>
+<b class="nc">&nbsp;    state = mediator.getHelloState();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void onResumeCalled() {
+<b class="nc">&nbsp;    Log.e(TAG, &quot;onResumeCalled()&quot;);</b>
+&nbsp;
+&nbsp;    //ByeToHelloState savedState = getDataFromByeScreen();
+<b class="nc">&nbsp;    ByeToHelloState savedState = mediator.getByeToHelloState();</b>
+<b class="nc">&nbsp;    if(savedState != null){</b>
+&nbsp;
+&nbsp;      // update state
+<b class="nc">&nbsp;      state.helloMessage = savedState.message;</b>
+&nbsp;      //mediator.resetByeToHelloState();
+&nbsp;    }
+&nbsp;
+&nbsp;    // update the view
+<b class="nc">&nbsp;    view.get().displayHelloData(state);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void onPauseCalled() {
+<b class="nc">&nbsp;    Log.e(TAG, &quot;onPauseCalled()&quot;);</b>
+&nbsp;
+&nbsp;    //mediator.setHelloState(state);
+&nbsp;
+&nbsp;    /*HelloToByeState newState = new HelloToByeState(state.helloMessage);
+&nbsp;    //passDataToByeScreen(newState);
+&nbsp;    mediator.setHelloToByeState(newState);*/
+&nbsp;  }
+&nbsp;
+&nbsp;  /*
+&nbsp;  private void startHelloMessageAsyncTask() {
+&nbsp;    //Log.e(TAG, &quot;startHelloMessageAsyncTask()&quot;);
+&nbsp;
+&nbsp;    // este codigo puede ir tambien en goByeButtonClicked()
+&nbsp;    String message=model.getHelloMessage();
+&nbsp;    state.helloMessage = message;
+&nbsp;
+&nbsp;    view.get().displayHelloData(state);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void sayHelloButtonClicked() {
+&nbsp;    //Log.e(TAG, &quot;sayHelloButtonClicked()&quot;);
+&nbsp;
+&nbsp;    state.helloMessage = &quot;?&quot;;
+&nbsp;
+&nbsp;    view.get().displayHelloData(state);
+&nbsp;
+&nbsp;    // call the model
+&nbsp;    startHelloMessageAsyncTask();
+&nbsp;
+&nbsp;  }
+&nbsp;  */
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void sayHelloButtonClicked() {
+&nbsp;    //Log.e(TAG, &quot;sayHelloButtonClicked()&quot;);
+&nbsp;
+&nbsp;    // call the model
+<b class="nc">&nbsp;    state.helloMessage = model.getHelloMessage();</b>
+&nbsp;
+&nbsp;    // update the view
+<b class="nc">&nbsp;    view.get().displayHelloData(state);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void goByeButtonClicked() {
+&nbsp;    //Log.e(TAG, &quot;goByeButtonClicked()&quot;);
+&nbsp;
+<b class="nc">&nbsp;    HelloToByeState newState = new HelloToByeState(state.helloMessage);</b>
+&nbsp;    //passDataToByeScreen(newState);
+<b class="nc">&nbsp;    mediator.setHelloToByeState(newState);</b>
+&nbsp;
+<b class="nc">&nbsp;    view.get().navigateToByeScreen();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;//  private ByeToHelloState getDataFromByeScreen() {
+&nbsp;//    return mediator.getByeToHelloState();
+&nbsp;//  }
+&nbsp;//
+&nbsp;//  private void passDataToByeScreen(HelloToByeState state) {
+&nbsp;//    mediator.setHelloToByeState(state);
+&nbsp;//  }
+&nbsp;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void injectView(WeakReference&lt;HelloContract.View&gt; view) {
+<b class="nc">&nbsp;    this.view = view;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void injectModel(HelloContract.Model model) {
+<b class="nc">&nbsp;    this.model = model;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-21 21:29</div>
+</div>
+</body>
+</html>
