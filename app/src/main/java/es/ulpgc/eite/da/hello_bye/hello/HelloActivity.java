@@ -78,7 +78,7 @@ public class HelloActivity
 
   @Override
   public void displayHelloData(HelloViewModel viewModel) {
-    Log.e(TAG, "displayHelloData()");
+    Log.e(TAG, "displayHelloData");
 
     // deal with the data
     helloMessage.setText(viewModel.helloMessage);

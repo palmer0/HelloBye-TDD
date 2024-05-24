@@ -1,67 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-/*
-buildscript {
-    dependencies {
-        //Jacoco Plugin
-        classpath "org.jacoco:org.jacoco.core:0.8.10"
-    }
-}*/
-
-
-/*
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
-        classpath "org.jetbrains.kotlinx:kover:0.4.3"
-    }
-}
-*/
-
-
-/*
-buildscript {
-
-    ext.jacocoVersion = '0.8.8'
-
-    repositories {
-        google()
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.4.0'
-        classpath "org.jacoco:org.jacoco.core:$jacocoVersion"
-    }
-}
-
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-*/
-
 plugins {
     alias(libs.plugins.android.application) apply false
-    //id("io.github.gmazzo.test.aggregation.coverage") version "2.2.0"
-    //id("io.github.gmazzo.test.aggregation.results") version "2.2.0"
-    //id "nl.neotech.plugin.rootcoverage" version "1.8.0"
-    //id("org.jetbrains.kotlin.android") version "1.9.0" apply false
-    //id("org.jetbrains.kotlinx.kover") version "0.7.6" apply false
-    //id("org.jetbrains.kotlinx.kover") version "0.7.5"
-    //id 'org.jetbrains.kotlinx.kover' version '0.4.3'
+
 }
-
-
-/*
-
-allprojects {
-    apply plugin: 'jacoco'
-}
-*/
 

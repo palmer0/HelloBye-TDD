@@ -38,40 +38,6 @@ public class HelloByeTests {
   public HelloByeSteps steps = new HelloByeSteps();
 
 
-  /*
-  @Before
-  public void setUp() {
-
-    try {
-
-      UiDevice device = UiDevice.getInstance(getInstrumentation());
-      device.setOrientationNatural();
-
-    } catch (RemoteException e) {
-    }
-
-    testRule.launchActivity(new Intent());
-    activity = testRule.getActivity();
-
-
-  }
-
-  @After
-  public void tearDown() {
-
-    try {
-
-      UiDevice device = UiDevice.getInstance(getInstrumentation());
-      device.setOrientationNatural();
-
-    } catch (RemoteException e) {
-    }
-
-    testRule.finishActivity();
-  }
-
-  */
-
   @Before
   public void setUp() {
 
@@ -116,11 +82,10 @@ public class HelloByeTests {
     */
 
 
-
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayHello
@@ -149,7 +114,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton GoBye
@@ -159,7 +124,7 @@ public class HelloByeTests {
     // Then iniciar pantalla Bye
     steps.iniciarPantallaBye();
     // And ocultar mensaje en pantalla Bye
-    steps.ocultarMensajeEnPantallaBye(
+    steps.ocultarMensajeEnPantallaByeMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton Back
@@ -182,7 +147,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayHello
@@ -226,7 +191,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton GoBye
@@ -234,7 +199,7 @@ public class HelloByeTests {
     // And iniciar pantalla Bye
     steps.iniciarPantallaBye();
     // And ocultar mensaje en pantalla Bye
-    steps.ocultarMensajeEnPantallaBye(
+    steps.ocultarMensajeEnPantallaByeMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton GoHello
@@ -246,7 +211,7 @@ public class HelloByeTests {
     // And resumir pantalla Hello
     steps.resumirPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
   }
@@ -267,7 +232,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton GoBye
@@ -275,7 +240,7 @@ public class HelloByeTests {
     // And iniciar pantalla Bye
     steps.iniciarPantallaBye();
     // And ocultar mensaje en pantalla Bye
-    steps.ocultarMensajeEnPantallaBye(
+    steps.ocultarMensajeEnPantallaByeMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton Back
@@ -287,7 +252,7 @@ public class HelloByeTests {
     // And resumir pantalla Hello
     steps.resumirPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
   }
@@ -307,7 +272,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton GoBye
@@ -315,7 +280,7 @@ public class HelloByeTests {
     // And iniciar pantalla Bye
     steps.iniciarPantallaBye();
     // And ocultar mensaje en pantalla Bye
-    steps.ocultarMensajeEnPantallaBye(
+    steps.ocultarMensajeEnPantallaByeMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayBye
@@ -347,7 +312,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayHello
@@ -400,7 +365,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton GoBye
@@ -408,7 +373,7 @@ public class HelloByeTests {
     // And iniciar pantalla Bye
     steps.iniciarPantallaBye();
     // And ocultar mensaje en pantalla Bye
-    steps.ocultarMensajeEnPantallaBye(
+    steps.ocultarMensajeEnPantallaByeMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayBye
@@ -453,7 +418,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton GoBye
@@ -461,7 +426,7 @@ public class HelloByeTests {
     // And iniciar pantalla Bye
     steps.iniciarPantallaBye();
     // And ocultar mensaje en pantalla Bye
-    steps.ocultarMensajeEnPantallaBye(
+    steps.ocultarMensajeEnPantallaByeMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayBye
@@ -481,7 +446,7 @@ public class HelloByeTests {
     // And resumir pantalla Hello
     steps.resumirPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
   }
@@ -504,7 +469,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayHello
@@ -565,7 +530,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayHello
@@ -626,7 +591,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton GoBye
@@ -634,7 +599,7 @@ public class HelloByeTests {
     // And iniciar pantalla Bye
     steps.iniciarPantallaBye();
     // And ocultar mensaje en pantalla Bye
-    steps.ocultarMensajeEnPantallaBye(
+    steps.ocultarMensajeEnPantallaByeMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayBye
@@ -684,7 +649,7 @@ public class HelloByeTests {
     // Given iniciar pantalla Hello
     steps.iniciarPantallaHello();
     // And ocultar mensaje en pantalla Hello
-    steps.ocultarMensajeEnPantallaHello(
+    steps.ocultarMensajeEnPantallaHelloMostrandoTexto(
         activity.getString(R.string.empty_text)
     );
     // And pulsar boton SayHello

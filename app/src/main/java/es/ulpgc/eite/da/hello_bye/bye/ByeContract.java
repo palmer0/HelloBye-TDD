@@ -5,35 +5,39 @@ import java.lang.ref.WeakReference;
 
 public interface ByeContract {
 
-  interface View {
-    void injectPresenter(Presenter presenter);
+    interface View {
+        void injectPresenter(Presenter presenter);
 
-    void displayByeData(ByeViewModel viewModel);
-    void finishView();
-  }
+        void displayByeData(ByeViewModel viewModel);
 
-  interface Presenter {
-    void injectView(WeakReference<View> view);
-    void injectModel(Model model);
+        void finishView();
+    }
 
-    void onResumeCalled();
-    void sayByeButtonClicked();
-    void goHelloButtonClicked();
+    interface Presenter {
+        void injectView(WeakReference<View> view);
 
-    void onPauseCalled();
+        void injectModel(Model model);
 
-    void onBackPressed();
+        void onResumeCalled();
 
-    void onCreateCalled();
+        void sayByeButtonClicked();
 
-    void onRecreateCalled();
+        void goHelloButtonClicked();
 
-      void onDestroyCalled();
-  }
+        void onPauseCalled();
 
-  interface Model {
+        void onBackPressed();
 
-    String getByeMessage();
-  }
+        void onCreateCalled();
+
+        void onRecreateCalled();
+
+        void onDestroyCalled();
+    }
+
+    interface Model {
+
+        String getByeMessage();
+    }
 
 }

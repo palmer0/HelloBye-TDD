@@ -22,32 +22,20 @@ import androidx.test.uiautomator.UiDevice;
 class HelloByeSteps {
 
 
-
-  /*
-  private Activity activity;
-
-  public HelloAppSteps(Activity activity) {
-    this.activity = activity;
-  }
-  */
-
   public void iniciarPantallaHello() {
 
   }
   
   
-  public void ocultarMensajeEnPantallaHello(String msg) {
+  public void ocultarMensajeEnPantallaHelloMostrandoTexto(String text) {
     try {
       Thread.sleep(100);
     } catch (InterruptedException e) {
 
     }
 
-    //onView(withId(R.id.helloMessage)).check(matches(not(isDisplayed())));
     onView(withId(R.id.helloMessage)).check(matches(isDisplayed()));
-    /*onView(withId(R.id.helloMessage))
-        .check(matches(withText(activity.getString(R.string.empty_text))));*/
-    onView(withId(R.id.helloMessage)).check(matches(withText(msg)));
+    onView(withId(R.id.helloMessage)).check(matches(withText(text)));
   }
 
   public void pulsarBotonSayHello() {
@@ -96,7 +84,7 @@ class HelloByeSteps {
     */
   }
 
-  public void mostrarMensajeHelloWorldEnPantallaHello(String msg) {
+  public void mostrarMensajeHelloWorldEnPantallaHello(String text) {
 
     try {
       Thread.sleep(100);
@@ -105,9 +93,7 @@ class HelloByeSteps {
     }
 
     onView(withId(R.id.helloMessage)).check(matches(isDisplayed()));
-    /*onView(withId(R.id.helloMessage))
-        .check(matches(withText(activity.getString(R.string.hello_message))));*/
-    onView(withId(R.id.helloMessage)).check(matches(withText(msg)));
+    onView(withId(R.id.helloMessage)).check(matches(withText(text)));
   }
 
   public void pulsarBotonGoBye() {
@@ -119,12 +105,9 @@ class HelloByeSteps {
 
   }
 
-  public void ocultarMensajeEnPantallaBye(String msg) {
-    //onView(withId(R.id.byeMessage)).check(matches(not(isDisplayed())));
+  public void ocultarMensajeEnPantallaByeMostrandoTexto(String text) {
     onView(withId(R.id.byeMessage)).check(matches(isDisplayed()));
-    /*onView(withId(R.id.byeMessage))
-        .check(matches(withText(activity.getString(R.string.empty_text))));*/
-    onView(withId(R.id.byeMessage)).check(matches(withText(msg)));
+    onView(withId(R.id.byeMessage)).check(matches(withText(text)));
   }
 
   public void pulsarBotonBack() {
@@ -137,12 +120,10 @@ class HelloByeSteps {
     }*/
   }
 
-  public void mostrarMensajeHelloWorldEnPantallaBye(String msg) {
+  public void mostrarMensajeHelloWorldEnPantallaBye(String text) {
 
     onView(withId(R.id.byeMessage)).check(matches(isDisplayed()));
-    /*onView(withId(R.id.byeMessage))
-        .check(matches(withText(activity.getString(R.string.hello_message))));*/
-    onView(withId(R.id.byeMessage)).check(matches(withText(msg)));
+    onView(withId(R.id.byeMessage)).check(matches(withText(text)));
   }
 
   public void pulsarBotonGoHello() {
@@ -167,7 +148,7 @@ class HelloByeSteps {
     onView(withId(R.id.sayByeButton)).perform(click());
   }
 
-  public void mostrarMensajeByeWorldEnPantallaBye(String msg) {
+  public void mostrarMensajeByeWorldEnPantallaBye(String text) {
     try {
       Thread.sleep(100);
     } catch (InterruptedException e) {
@@ -175,12 +156,10 @@ class HelloByeSteps {
     }
 
     onView(withId(R.id.byeMessage)).check(matches(isDisplayed()));
-    /*onView(withId(R.id.byeMessage))
-        .check(matches(withText(activity.getString(R.string.bye_message))));*/
-    onView(withId(R.id.byeMessage)).check(matches(withText(msg)));
+    onView(withId(R.id.byeMessage)).check(matches(withText(text)));
   }
 
-  public void mostrarMensajeByeWorldEnPantallaHello(String msg) {
+  public void mostrarMensajeByeWorldEnPantallaHello(String text) {
     try {
       Thread.sleep(100);
     } catch (InterruptedException e) {
@@ -188,8 +167,6 @@ class HelloByeSteps {
     }
 
     onView(withId(R.id.helloMessage)).check(matches(isDisplayed()));
-    /*onView(withId(R.id.helloMessage))
-        .check(matches(withText(activity.getString(R.string.bye_message))));*/
-    onView(withId(R.id.helloMessage)).check(matches(withText(msg)));
+    onView(withId(R.id.helloMessage)).check(matches(withText(text)));
   }
 }

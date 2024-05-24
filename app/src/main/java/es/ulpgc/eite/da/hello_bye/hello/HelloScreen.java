@@ -13,8 +13,7 @@ public class HelloScreen {
 
   public static void configure(HelloContract.View view) {
 
-    WeakReference<FragmentActivity> context =
-        new WeakReference<>((FragmentActivity) view);
+    WeakReference<FragmentActivity> context = new WeakReference<>((FragmentActivity) view);
 
     AppMediator mediator = AppMediator.getInstance();
     HelloContract.Presenter presenter = new HelloPresenter(mediator);

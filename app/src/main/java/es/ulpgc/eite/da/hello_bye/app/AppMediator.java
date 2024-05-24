@@ -6,9 +6,6 @@ import es.ulpgc.eite.da.hello_bye.hello.HelloState;
 
 public class AppMediator {
 
-//  private HelloState helloState = new HelloState();
-//  private ByeState byeState = new ByeState();
-
   private HelloState helloState;
   private ByeState byeState;
 
@@ -54,26 +51,22 @@ public class AppMediator {
 
   public HelloToByeState getHelloToByeState() {
     HelloToByeState state = helloToByeState;
-    //HelloToByeState state = helloToByeState.clone();
     helloToByeState = null;
     return state;
   }
 
   public void setHelloToByeState(HelloToByeState state) {
     helloToByeState = state;
-    //helloToByeState = state.clone();
   }
 
   public ByeToHelloState getByeToHelloState() {
     ByeToHelloState state = byeToHelloState;
-    //ByeToHelloState state = byeToHelloState.clone();
     byeToHelloState = null;
     return state;
   }
 
   public void setByeToHelloState(ByeToHelloState state) {
     byeToHelloState = state;
-    //byeToHelloState = state.clone();
   }
 
 //  public void resetByeState() {
