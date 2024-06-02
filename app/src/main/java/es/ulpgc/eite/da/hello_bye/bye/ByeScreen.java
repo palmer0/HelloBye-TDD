@@ -13,7 +13,8 @@ public class ByeScreen {
 
     public static void configure(ByeContract.View view) {
 
-        WeakReference<FragmentActivity> context = new WeakReference<>((FragmentActivity) view);
+        WeakReference<FragmentActivity> context =
+            new WeakReference<>((FragmentActivity) view);
 
         AppMediator mediator = AppMediator.getInstance();
         ByeContract.Presenter presenter = new ByePresenter(mediator);
