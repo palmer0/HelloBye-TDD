@@ -11,20 +11,20 @@ import es.ulpgc.eite.da.hello_bye.app.AppMediator;
 
 public class HelloScreen {
 
-  public static void configure(HelloContract.View view) {
+    public static void configure(HelloContract.View view) {
 
-    WeakReference<FragmentActivity> context = new WeakReference<>((FragmentActivity) view);
+        WeakReference<FragmentActivity> context = new WeakReference<>((FragmentActivity) view);
 
-    AppMediator mediator = AppMediator.getInstance();
-    HelloContract.Presenter presenter = new HelloPresenter(mediator);
+        AppMediator mediator = AppMediator.getInstance();
+        HelloContract.Presenter presenter = new HelloPresenter(mediator);
 
-    String message = context.get().getString(R.string.hello_message);
-    HelloContract.Model model = new HelloModel(message);
+        String message = context.get().getString(R.string.hello_message);
+        HelloContract.Model model = new HelloModel(message);
 
-    presenter.injectView(new WeakReference<>(view));
-    presenter.injectModel(model);
-    view.injectPresenter(presenter);
+        presenter.injectView(new WeakReference<>(view));
+        presenter.injectModel(model);
+        view.injectPresenter(presenter);
 
-  }
+    }
 
 }

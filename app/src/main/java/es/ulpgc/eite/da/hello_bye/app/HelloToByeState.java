@@ -1,16 +1,12 @@
 package es.ulpgc.eite.da.hello_bye.app;
 
-import androidx.annotation.NonNull;
-
-import es.ulpgc.eite.da.hello_bye.bye.ByeState;
-
 public class HelloToByeState {
 
-  public String message;
+    public String message;
 
-  public HelloToByeState(String message) {
-    this.message = message;
-  }
+    public HelloToByeState(String message) {
+        this.message = message;
+    }
 
 //  @Override
 //  public HelloToByeState clone() {
@@ -21,7 +17,7 @@ public class HelloToByeState {
 //    }
 //  }
 
-  //  @Override
+    //  @Override
 //  public boolean equals(Object obj) {
 //    if (this == obj) return true;
 //    if (obj == null || getClass() != obj.getClass()) return false;

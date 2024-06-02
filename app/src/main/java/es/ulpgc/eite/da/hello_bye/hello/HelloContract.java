@@ -4,28 +4,36 @@ import java.lang.ref.WeakReference;
 
 public interface HelloContract {
 
-  interface View {
-    void injectPresenter(Presenter presenter);
+    interface View {
+        void injectPresenter(Presenter presenter);
 
-    void displayHelloData(HelloViewModel viewModel);
-    void navigateToByeScreen();
-  }
+        void displayHelloData(HelloViewModel viewModel);
 
-  interface Presenter {
-    void injectView(WeakReference<View> view);
-    void injectModel(Model model);
+        void navigateToByeScreen();
+    }
 
-    void onResumeCalled();
-    void sayHelloButtonClicked();
-    void goByeButtonClicked();
+    interface Presenter {
+        void injectView(WeakReference<View> view);
 
-    void onPauseCalled();
-    void onRecreateCalled();
-    void onCreateCalled();
-  }
+        void injectModel(Model model);
 
-  interface Model {
+        void onResumeCalled();
 
-    String getHelloMessage();
-  }
+        void sayHelloButtonClicked();
+
+        void goByeButtonClicked();
+
+        void onPauseCalled();
+
+        void onRecreateCalled();
+
+        void onCreateCalled();
+
+        void onDestroyCalled();
+    }
+
+    interface Model {
+
+        String getHelloMessage();
+    }
 }

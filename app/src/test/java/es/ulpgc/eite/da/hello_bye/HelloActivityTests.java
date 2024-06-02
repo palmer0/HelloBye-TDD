@@ -44,10 +44,15 @@ public class HelloActivityTests {
 
     @Test
     public void test01StartActivity() {
-        ActivityScenario<HelloActivity> scenario = ActivityScenario.launch(HelloActivity.class);
+        ActivityScenario<HelloActivity> scenario =
+            ActivityScenario.launch(HelloActivity.class);
 
         scenario.onActivity(activity -> {
-            TextView helloMessageField = activity.findViewById(R.id.helloMessage);
+
+            activity.recreate();
+
+            TextView helloMessageField =
+                activity.findViewById(R.id.helloMessage);
 
             assertEquals(
                 activity.getString(R.string.empty_text),
@@ -55,18 +60,27 @@ public class HelloActivityTests {
             );
 
             HelloState state = AppMediator.getInstance().getHelloState();
-            assertEquals(activity.getString(R.string.empty_text), state.helloMessage);
+            assertEquals(
+                activity.getString(R.string.empty_text),
+                state.helloMessage
+            );
         });
     }
 
     @Test
     public void test02PressSayHelloButton() {
-        ActivityScenario<HelloActivity> scenario = ActivityScenario.launch(HelloActivity.class);
+        ActivityScenario<HelloActivity> scenario =
+            ActivityScenario.launch(HelloActivity.class);
 
 
         scenario.onActivity(activity -> {
-            TextView helloMessageField = activity.findViewById(R.id.helloMessage);
-            Button sayHelloButton = activity.findViewById(R.id.sayHelloButton);
+
+            activity.recreate();
+
+            TextView helloMessageField =
+                activity.findViewById(R.id.helloMessage);
+            Button sayHelloButton =
+                activity.findViewById(R.id.sayHelloButton);
 
             sayHelloButton.performClick();
 
@@ -85,20 +99,27 @@ public class HelloActivityTests {
     @Test
     public void test03PressGoByeButton() {
 
-        ActivityScenario<HelloActivity> scenario = ActivityScenario.launch(HelloActivity.class);
+        ActivityScenario<HelloActivity> scenario =
+            ActivityScenario.launch(HelloActivity.class);
 
         scenario.onActivity(activity -> {
-            Button goByeButton = activity.findViewById(R.id.goByeButton);
 
+            activity.recreate();
+
+            Button goByeButton = activity.findViewById(R.id.goByeButton);
 
             goByeButton.performClick();
 
             Intent expectedIntent = new Intent(activity, ByeActivity.class);
             Intent actualIntent = shadowOf(activity).getNextStartedActivity();
 
-            assertEquals(expectedIntent.getComponent(), actualIntent.getComponent());
+            assertEquals(
+                expectedIntent.getComponent(),
+                actualIntent.getComponent()
+            );
 
-            HelloToByeState state = AppMediator.getInstance().getHelloToByeState();
+            HelloToByeState state =
+                AppMediator.getInstance().getHelloToByeState();
             assertEquals(activity.getString(R.string.empty_text), state.message);
 
         });
@@ -109,11 +130,17 @@ public class HelloActivityTests {
     @Test
     public void test04PressSayHelloAndGoByeButtons() {
 
-        ActivityScenario<HelloActivity> scenario = ActivityScenario.launch(HelloActivity.class);
+        ActivityScenario<HelloActivity> scenario =
+            ActivityScenario.launch(HelloActivity.class);
 
         scenario.onActivity(activity -> {
-            Button goByeButton = activity.findViewById(R.id.goByeButton);
-            Button sayHelloButton = activity.findViewById(R.id.sayHelloButton);
+
+            activity.recreate();
+
+            Button goByeButton =
+                activity.findViewById(R.id.goByeButton);
+            Button sayHelloButton =
+                activity.findViewById(R.id.sayHelloButton);
 
             sayHelloButton.performClick();
             goByeButton.performClick();
@@ -121,9 +148,13 @@ public class HelloActivityTests {
             Intent expectedIntent = new Intent(activity, ByeActivity.class);
             Intent actualIntent = shadowOf(activity).getNextStartedActivity();
 
-            assertEquals(expectedIntent.getComponent(), actualIntent.getComponent());
+            assertEquals(
+                expectedIntent.getComponent(),
+                actualIntent.getComponent()
+            );
 
-            HelloToByeState state = AppMediator.getInstance().getHelloToByeState();
+            HelloToByeState state =
+                AppMediator.getInstance().getHelloToByeState();
             assertEquals(activity.getString(R.string.hello_message), state.message);
 
         });
@@ -133,11 +164,16 @@ public class HelloActivityTests {
     @Test
     public void test05ResumeActivityWithNullState() {
 
-        ActivityScenario<HelloActivity> scenario = ActivityScenario.launch(HelloActivity.class);
+        ActivityScenario<HelloActivity> scenario =
+            ActivityScenario.launch(HelloActivity.class);
         scenario.moveToState(Lifecycle.State.RESUMED);
 
         scenario.onActivity(activity -> {
-            TextView helloMessageField = activity.findViewById(R.id.helloMessage);
+
+            activity.recreate();
+
+            TextView helloMessageField =
+                activity.findViewById(R.id.helloMessage);
 
             assertEquals(
                 activity.getString(R.string.empty_text),
@@ -160,11 +196,16 @@ public class HelloActivityTests {
         ByeToHelloState savedState = new ByeToHelloState(byeMessage);
         AppMediator.getInstance().setByeToHelloState(savedState);
 
-        ActivityScenario<HelloActivity> scenario = ActivityScenario.launch(HelloActivity.class);
+        ActivityScenario<HelloActivity> scenario =
+            ActivityScenario.launch(HelloActivity.class);
         scenario.moveToState(Lifecycle.State.RESUMED);
 
         scenario.onActivity(activity -> {
-            TextView helloMessageField = activity.findViewById(R.id.helloMessage);
+
+            activity.recreate();
+
+            TextView helloMessageField =
+                activity.findViewById(R.id.helloMessage);
 
             assertEquals(
                 activity.getString(R.string.bye_message),
@@ -189,18 +230,24 @@ public class HelloActivityTests {
         state.helloMessage = helloMessage;
         AppMediator.getInstance().setHelloState(state);
         
-        ActivityScenario<HelloActivity> scenario = ActivityScenario.launch(HelloActivity.class);
+        ActivityScenario<HelloActivity> scenario =
+            ActivityScenario.launch(HelloActivity.class);
         scenario.moveToState(Lifecycle.State.RESUMED);
 
         scenario.onActivity(activity -> {
-            TextView helloMessageField = activity.findViewById(R.id.helloMessage);
+
+            activity.recreate();
+
+            TextView helloMessageField =
+                activity.findViewById(R.id.helloMessage);
 
             assertEquals(
                 activity.getString(R.string.empty_text),
                 helloMessageField.getText().toString()
             );
 
-            HelloState updatedState = AppMediator.getInstance().getHelloState();
+            HelloState updatedState =
+                AppMediator.getInstance().getHelloState();
             assertEquals(activity.getString(R.string.empty_text), updatedState.helloMessage);
 
         });
@@ -224,18 +271,24 @@ public class HelloActivityTests {
         ByeToHelloState savedState = new ByeToHelloState(byeMessage);
         AppMediator.getInstance().setByeToHelloState(savedState);
 
-        ActivityScenario<HelloActivity> scenario = ActivityScenario.launch(HelloActivity.class);
+        ActivityScenario<HelloActivity> scenario =
+            ActivityScenario.launch(HelloActivity.class);
         scenario.moveToState(Lifecycle.State.RESUMED);
 
         scenario.onActivity(activity -> {
-            TextView helloMessageField = activity.findViewById(R.id.helloMessage);
+
+            activity.recreate();
+
+            TextView helloMessageField =
+                activity.findViewById(R.id.helloMessage);
 
             assertEquals(
                 activity.getString(R.string.bye_message),
                 helloMessageField.getText().toString()
             );
 
-            HelloState updatedState = AppMediator.getInstance().getHelloState();
+            HelloState updatedState =
+                AppMediator.getInstance().getHelloState();
             assertEquals(activity.getString(R.string.bye_message), updatedState.helloMessage);
 
         });

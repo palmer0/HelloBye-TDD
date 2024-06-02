@@ -1,8 +1,6 @@
 package es.ulpgc.eite.da.hello_bye.bye;
 
-import es.ulpgc.eite.da.hello_bye.hello.HelloState;
-
-public class ByeState extends ByeViewModel  {
+public class ByeState extends ByeViewModel {
 
 //    @Override
 //    public ByeState clone() {

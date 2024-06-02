@@ -1,6 +1,6 @@
 package es.ulpgc.eite.da.hello_bye.hello;
 
-public class HelloState extends HelloViewModel  {
+public class HelloState extends HelloViewModel {
 
 //    @Override
 //    public HelloState clone() {

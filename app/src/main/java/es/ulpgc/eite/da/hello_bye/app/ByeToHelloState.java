@@ -1,18 +1,12 @@
 package es.ulpgc.eite.da.hello_bye.app;
 
-import androidx.annotation.NonNull;
+public class ByeToHelloState {
 
-import java.util.Objects;
+    public String message;
 
-import es.ulpgc.eite.da.hello_bye.bye.ByeState;
-
-public class ByeToHelloState  {
-
-  public String message;
-
-  public ByeToHelloState(String message) {
-    this.message = message;
-  }
+    public ByeToHelloState(String message) {
+        this.message = message;
+    }
 
 //  @Override
 //  public ByeToHelloState clone() {

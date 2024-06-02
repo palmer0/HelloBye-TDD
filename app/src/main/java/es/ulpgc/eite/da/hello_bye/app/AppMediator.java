@@ -6,68 +6,65 @@ import es.ulpgc.eite.da.hello_bye.hello.HelloState;
 
 public class AppMediator {
 
-  private HelloState helloState;
-  private ByeState byeState;
+    private static AppMediator INSTANCE;
+    private HelloState helloState;
+    private ByeState byeState;
+    private HelloToByeState helloToByeState;
+    private ByeToHelloState byeToHelloState;
 
-  private HelloToByeState helloToByeState;
-  private ByeToHelloState byeToHelloState;
-
-
-  private static AppMediator INSTANCE;
-
-  private AppMediator() {
-    //helloState = new HelloState();
-    //byeState = new ByeState();
-  }
-
-  public static void resetInstance() {
-    INSTANCE = null;
-  }
-
-
-  public static AppMediator getInstance() {
-    if(INSTANCE == null){
-      INSTANCE = new AppMediator();
+    private AppMediator() {
+        //helloState = new HelloState();
+        //byeState = new ByeState();
     }
 
-    return INSTANCE;
-  }
+    public static void resetInstance() {
+        INSTANCE = null;
+    }
 
-  public void setHelloState(HelloState state) {
-    this.helloState = state;
-  }
 
-  public void setByeState(ByeState state) {
-    this.byeState = state;
-  }
+    public static AppMediator getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new AppMediator();
+        }
 
-  public ByeState getByeState() {
-    return byeState;
-  }
+        return INSTANCE;
+    }
 
-  public HelloState getHelloState() {
-    return helloState;
-  }
+    public ByeState getByeState() {
+        return byeState;
+    }
 
-  public HelloToByeState getHelloToByeState() {
-    HelloToByeState state = helloToByeState;
-    helloToByeState = null;
-    return state;
-  }
+    public void setByeState(ByeState state) {
+        this.byeState = state;
+    }
 
-  public void setHelloToByeState(HelloToByeState state) {
-    helloToByeState = state;
-  }
+    public HelloState getHelloState() {
+        return helloState;
+    }
 
-  public ByeToHelloState getByeToHelloState() {
-    ByeToHelloState state = byeToHelloState;
-    byeToHelloState = null;
-    return state;
-  }
+    public void setHelloState(HelloState state) {
+        this.helloState = state;
+    }
 
-  public void setByeToHelloState(ByeToHelloState state) {
-    byeToHelloState = state;
-  }
+    public HelloToByeState getHelloToByeState() {
+        HelloToByeState state = helloToByeState;
+        helloToByeState = null;
+        return state;
+    }
+
+    public void setHelloToByeState(HelloToByeState state) {
+        helloToByeState = state;
+    }
+
+    public ByeToHelloState getByeToHelloState() {
+        ByeToHelloState state = byeToHelloState;
+        byeToHelloState = null;
+        return state;
+    }
+
+    public void setByeToHelloState(ByeToHelloState state) {
+        byeToHelloState = state;
+    }
 
 //  public void resetByeState() {
 //    byeState  = null;
