@@ -99,8 +99,8 @@ public class ByePresenter implements ByeContract.Presenter {
     public void goHelloButtonClicked() {
         Log.e(TAG, "goHelloButtonClicked");
 
-        ByeToHelloState prevState = new ByeToHelloState(state.byeMessage);
-        mediator.setByeToHelloState(prevState);
+        ByeToHelloState newState = new ByeToHelloState(state.byeMessage);
+        mediator.setByeToHelloState(newState);
 
         view.get().finishView();
     }

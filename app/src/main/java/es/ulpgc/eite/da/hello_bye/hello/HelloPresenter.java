@@ -85,8 +85,8 @@ public class HelloPresenter implements HelloContract.Presenter {
     public void goByeButtonClicked() {
         Log.e(TAG, "goByeButtonClicked");
 
-        HelloToByeState nextState = new HelloToByeState(state.helloMessage);
-        mediator.setHelloToByeState(nextState);
+        HelloToByeState newState = new HelloToByeState(state.helloMessage);
+        mediator.setHelloToByeState(newState);
 
         view.get().navigateToByeScreen();
     }
