@@ -83,6 +83,7 @@ public class ByeActivity
         presenter.onDestroyCalled();
     }
 
+    /*
     @Override
     public void displayByeData(ByeViewModel viewModel) {
         Log.e(TAG, "displayByeData");
@@ -91,7 +92,16 @@ public class ByeActivity
         byeMessage.setText(viewModel.byeMessage);
 
     }
+    */
 
+    @Override
+    public void displayByeData(ByeState viewModel) {
+        Log.e(TAG, "displayByeData");
+
+        // deal with the data
+        byeMessage.setText(viewModel.byeMessage);
+
+    }
 
     @Override
     public void finishView() {
