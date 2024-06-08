@@ -26,7 +26,7 @@ public interface ByeContract {
 
         void onPauseCalled();
 
-        void onBackPressed();
+        void onBackButtonPressed();
 
         void onCreateCalled();
 

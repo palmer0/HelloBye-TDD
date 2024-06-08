@@ -72,7 +72,7 @@ public class ByeActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        presenter.onBackPressed();
+        presenter.onBackButtonPressed();
     }
 
     @Override

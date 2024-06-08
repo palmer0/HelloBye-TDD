@@ -33,6 +33,7 @@ public class HelloPresenter implements HelloContract.Presenter {
     @Override
     public void onRecreateCalled() {
         Log.e(TAG, "onRecreateCalled");
+
         state = mediator.getHelloState();
     }
 
@@ -71,7 +72,7 @@ public class HelloPresenter implements HelloContract.Presenter {
 
     @Override
     public void sayHelloButtonClicked() {
-        //Log.e(TAG, "sayHelloButtonClicked");
+        Log.e(TAG, "sayHelloButtonClicked");
 
         // call the model
         state.helloMessage = model.getHelloMessage();
@@ -82,10 +83,10 @@ public class HelloPresenter implements HelloContract.Presenter {
 
     @Override
     public void goByeButtonClicked() {
-        //Log.e(TAG, "goByeButtonClicked");
+        Log.e(TAG, "goByeButtonClicked");
 
-        HelloToByeState newState = new HelloToByeState(state.helloMessage);
-        mediator.setHelloToByeState(newState);
+        HelloToByeState nextState = new HelloToByeState(state.helloMessage);
+        mediator.setHelloToByeState(nextState);
 
         view.get().navigateToByeScreen();
     }

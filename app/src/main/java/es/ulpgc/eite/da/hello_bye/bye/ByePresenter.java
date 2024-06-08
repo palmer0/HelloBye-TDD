@@ -52,13 +52,13 @@ public class ByePresenter implements ByeContract.Presenter {
     public void onResumeCalled() {
         Log.e(TAG, "onResumeCalled");
 
-    /*HelloToByeState savedState = mediator.getHelloToByeState();
-    if(savedState != null){
+        /*HelloToByeState savedState = mediator.getHelloToByeState();
+        if(savedState != null){
 
-      // set passed state
-      state.byeMessage = savedState.message;
-      //mediator.resetHelloToByeState();
-    }*/
+          // set passed state
+          state.byeMessage = savedState.message;
+          //mediator.resetHelloToByeState();
+        }*/
 
         view.get().displayByeData(state);
     }
@@ -71,8 +71,8 @@ public class ByePresenter implements ByeContract.Presenter {
     }
 
     @Override
-    public void onBackPressed() {
-        //Log.e(TAG, "onBackPressed");
+    public void onBackButtonPressed() {
+        Log.e(TAG, "onBackButtonPressed");
 
         // reset passed state
         //state.byeMessage = state.message;
@@ -97,9 +97,10 @@ public class ByePresenter implements ByeContract.Presenter {
 
     @Override
     public void goHelloButtonClicked() {
+        Log.e(TAG, "goHelloButtonClicked");
 
-        ByeToHelloState newState = new ByeToHelloState(state.byeMessage);
-        mediator.setByeToHelloState(newState);
+        ByeToHelloState prevState = new ByeToHelloState(state.byeMessage);
+        mediator.setByeToHelloState(prevState);
 
         view.get().finishView();
     }
