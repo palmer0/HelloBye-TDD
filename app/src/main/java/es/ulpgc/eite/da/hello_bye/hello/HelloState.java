@@ -1,8 +1,8 @@
 package es.ulpgc.eite.da.hello_bye.hello;
 
-public class HelloState  {
+public class HelloState extends HelloViewModel {
 
-    public String helloMessage = "???";
+    //public String helloMessage = "???";
 
 //    @Override
 //    public HelloState clone() {

@@ -2,7 +2,7 @@ package es.ulpgc.eite.da.hello_bye.bye;
 
 public class ByeViewModel {
 
-    //public String byeMessage = "???";
+    public String byeMessage = "???";
 
 //  @Override
 //  public boolean equals(Object obj) {

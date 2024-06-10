@@ -1,8 +1,8 @@
 package es.ulpgc.eite.da.hello_bye.bye;
 
-public class ByeState  {
+public class ByeState extends ByeViewModel {
 
-    public String byeMessage = "???";
+    //public String byeMessage = "???";
 
 //    @Override
 //    public ByeState clone() {
