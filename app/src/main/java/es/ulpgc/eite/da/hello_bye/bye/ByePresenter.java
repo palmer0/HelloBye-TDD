@@ -33,7 +33,7 @@ public class ByePresenter implements ByeContract.Presenter {
         HelloToByeState savedState = mediator.getHelloToByeState();
         if (savedState != null) {
 
-            // set passed state
+            // use saved state to update current state
             state.byeMessage = savedState.message;
         }
 

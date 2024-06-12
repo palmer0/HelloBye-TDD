@@ -27,18 +27,9 @@ public class HelloActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hello);
-
         setTitle(R.string.hello_screen_title);
 
-        sayHelloButton = findViewById(R.id.sayHelloButton);
-        goByeButton = findViewById(R.id.goByeButton);
-        helloMessage = findViewById(R.id.helloMessage);
-
-        sayHelloButton.setText(getSayHelloButtonLabel());
-        goByeButton.setText(getGoByeButtonLabel());
-
-        sayHelloButton.setOnClickListener(v -> presenter.sayHelloButtonClicked());
-        goByeButton.setOnClickListener(v -> presenter.goByeButtonClicked());
+        initScreen();
 
         // do the setup
         HelloScreen.configure(this);
@@ -51,6 +42,19 @@ public class HelloActivity
             presenter.onRecreateCalled();
         }
 
+    }
+
+    private void initScreen() {
+
+        sayHelloButton = findViewById(R.id.sayHelloButton);
+        goByeButton = findViewById(R.id.goByeButton);
+        helloMessage = findViewById(R.id.helloMessage);
+
+        sayHelloButton.setText(getSayHelloButtonLabel());
+        goByeButton.setText(getGoByeButtonLabel());
+
+        sayHelloButton.setOnClickListener(v -> presenter.sayHelloButtonClicked());
+        goByeButton.setOnClickListener(v -> presenter.goByeButtonClicked());
     }
 
     @Override

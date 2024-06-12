@@ -24,18 +24,9 @@ public class ByeActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bye);
-
         setTitle(R.string.bye_screen_title);
 
-        sayByeButton = findViewById(R.id.sayByeButton);
-        goHelloButton = findViewById(R.id.goHelloButton);
-        byeMessage = findViewById(R.id.byeMessage);
-
-        sayByeButton.setText(getSayByeButtonLabel());
-        goHelloButton.setText(getGoHelloButtonLabel());
-
-        sayByeButton.setOnClickListener(v -> presenter.sayByeButtonClicked());
-        goHelloButton.setOnClickListener(v -> presenter.goHelloButtonClicked());
+        initScreen();
 
         // do the setup
         ByeScreen.configure(this);
@@ -49,6 +40,18 @@ public class ByeActivity
 
         }
 
+    }
+
+    private void initScreen() {
+        sayByeButton = findViewById(R.id.sayByeButton);
+        goHelloButton = findViewById(R.id.goHelloButton);
+        byeMessage = findViewById(R.id.byeMessage);
+
+        sayByeButton.setText(getSayByeButtonLabel());
+        goHelloButton.setText(getGoHelloButtonLabel());
+
+        sayByeButton.setOnClickListener(v -> presenter.sayByeButtonClicked());
+        goHelloButton.setOnClickListener(v -> presenter.goHelloButtonClicked());
     }
 
     @Override
