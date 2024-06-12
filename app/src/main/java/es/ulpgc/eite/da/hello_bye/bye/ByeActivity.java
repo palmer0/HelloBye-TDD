@@ -92,15 +92,6 @@ public class ByeActivity
 
     }
 
-    /*@Override
-    public void displayByeData(ByeState viewModel) {
-        Log.e(TAG, "displayByeData");
-
-        // deal with the data
-        byeMessage.setText(viewModel.byeMessage);
-
-    }*/
-
     @Override
     public void finishView() {
         finish();

@@ -84,14 +84,6 @@ public class HelloActivity
         startActivity(intent);
     }
 
-    /*@Override
-    public void displayHelloData(HelloState viewModel) {
-        Log.e(TAG, "displayHelloData");
-
-        // deal with the data
-        helloMessage.setText(viewModel.helloMessage);
-    }*/
-
     @Override
     public void displayHelloData(HelloViewModel viewModel) {
         Log.e(TAG, "displayHelloData");

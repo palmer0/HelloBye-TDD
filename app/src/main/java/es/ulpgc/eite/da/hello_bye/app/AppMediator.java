@@ -66,16 +66,5 @@ public class AppMediator {
         byeToHelloState = state;
     }
 
-//  public void resetByeState() {
-//    byeState  = null;
-//  }
-//
-//  public void resetHelloToByeState() {
-//    helloToByeState  = null;
-//  }
-//
-//  public void resetByeToHelloState() {
-//    byeToHelloState  = null;
-//  }
 
 }

@@ -27,7 +27,6 @@ public class HelloPresenter implements HelloContract.Presenter {
         Log.e(TAG, "onCreateCalled");
 
         state = new HelloState();
-        //mediator.setHelloState(state);
     }
 
     @Override
@@ -47,7 +46,6 @@ public class HelloPresenter implements HelloContract.Presenter {
 
             // update state
             state.helloMessage = savedState.message;
-            //mediator.resetByeToHelloState();
         }
 
         // update the view
@@ -60,9 +58,6 @@ public class HelloPresenter implements HelloContract.Presenter {
         Log.e(TAG, "onPauseCalled");
 
         mediator.setHelloState(state);
-
-        //HelloToByeState newState = new HelloToByeState(state.helloMessage);
-        //mediator.setHelloToByeState(newState);
     }
 
     @Override
