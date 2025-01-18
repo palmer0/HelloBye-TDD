@@ -27,6 +27,7 @@ public class HelloPresenter implements HelloContract.Presenter {
         Log.e(TAG, "onCreateCalled");
 
         state = new HelloState();
+        mediator.setHelloState(state);
     }
 
     @Override

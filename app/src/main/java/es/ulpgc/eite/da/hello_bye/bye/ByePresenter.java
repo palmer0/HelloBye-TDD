@@ -7,6 +7,7 @@ import java.lang.ref.WeakReference;
 import es.ulpgc.eite.da.hello_bye.app.AppMediator;
 import es.ulpgc.eite.da.hello_bye.app.ByeToHelloState;
 import es.ulpgc.eite.da.hello_bye.app.HelloToByeState;
+import es.ulpgc.eite.da.hello_bye.hello.HelloState;
 
 
 public class ByePresenter implements ByeContract.Presenter {
@@ -29,6 +30,7 @@ public class ByePresenter implements ByeContract.Presenter {
         Log.e(TAG, "onCreateCalled");
 
         state = new ByeState();
+        mediator.setByeState(state);
 
         HelloToByeState savedState = mediator.getHelloToByeState();
         if (savedState != null) {
