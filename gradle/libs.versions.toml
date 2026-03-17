@@ -12,6 +12,8 @@ robolectric = "4.14.1"
 runner = "1.6.2"
 uiautomator = "2.3.0"
 
+
+
 [libraries]
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 core = { module = "androidx.test:core", version.ref = "core" }
